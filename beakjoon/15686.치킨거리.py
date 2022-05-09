@@ -14,7 +14,7 @@ target = []
 def in_range(x,y):
     return 0 <= x < n and 0 <= y < n
 
-def can_go(x,y, new_grid):
+def can_go(x,y):
     global visited
 
     if not in_range(x,y):
