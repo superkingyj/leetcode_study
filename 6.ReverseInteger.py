@@ -10,7 +10,7 @@ class Solution:
 
         if x < 0:
             result = -result
-
+ 
         if result > pow(2,31)-1 or result < -pow(2, 31):
             return 0 
         
