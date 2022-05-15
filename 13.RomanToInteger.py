@@ -7,7 +7,11 @@ class Solution:
         s = list(s)
         result = 0 
         minus_list = ["I", "X", "C"]
-        after_list = [["V", "X"], ["L", "C"], ["D", "M"]]
+        after_dict = {
+            "I": ["V", "X"],
+            "X": ["L", "C"],
+            "C": ["D", "M"]
+        }
         
         roman_dict = {
             "I": 1,
@@ -20,7 +24,7 @@ class Solution:
         }
         
         for idx, char in enumerate(s):
-            if idx+1 < len(s) and (char in minus_list) and (s[idx+1] in after_list[minus_list.index(char)]):
+            if idx+1 < len(s) and (char in minus_list) and (s[idx+1] in after_dict[char]):
                 result -= roman_dict[char]
             else:
                 result += roman_dict[char]
