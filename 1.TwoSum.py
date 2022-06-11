@@ -7,15 +7,23 @@ class Solution:
         ## Time complexity -> O(N)
         ## Space complexity -> O(1)
         
-        result = [] 
+        # result = [] 
         
-        for idx, val in enumerate(nums):
-            if target-val in nums and nums.index(target-val) != idx:
-                result.append(idx)
-                result.append(nums.index(target-val))
-                break
+        # for idx, val in enumerate(nums):
+        #     if target-val in nums and nums.index(target-val) != idx:
+        #         result.append(idx)
+        #         result.append(nums.index(target-val))
+        #         break
         
-        return result
+        # return result
+
+        d = dict()
+
+        for idx, num in enumerate(nums):
+            diff = target - num
+            if diff in d: return [d[diff], idx]
+            d[num] = idx
+                
 
 
 # sol = Solution()
