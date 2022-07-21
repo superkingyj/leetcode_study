@@ -1,4 +1,5 @@
-import re 
+import re
+from typing import Iterator 
 
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
@@ -11,4 +12,4 @@ class Solution:
         if s[idxs[0]:idxs[1]] == s:
             return True
         return False
-        
+    
