@@ -12,7 +12,6 @@ def bfs(s_x, s_y):
 
     while q:
         x, y = q.popleft()
-        print(f"x:{x}, y:{y}")
         for idx, item in enumerate(cvs_list):
             cvs_x, cvs_y = item[0], item[1]
             if can_go(idx, x, y, cvs_x, cvs_y):
@@ -31,9 +30,7 @@ for _ in range(N):
     q = deque()
     visited = [False] * (cvs_cnt+2)
     
-    print(cvs_list)
     bfs(s_x, s_y)
-    print(visited)
     print("happy") if visited[-1] else print("sad")
 
 
