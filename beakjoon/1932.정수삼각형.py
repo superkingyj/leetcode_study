@@ -1,15 +1,19 @@
 import sys
+from pprint import pprint
 
 N = int(sys.stdin.readline())
-dp = [[0] * (N+1) for _ in range(N+1)]
-
-for i in range(1, N+1):
+arr = [[0] * N for _ in range(N)]
+for i in range(N):
     input = list(map(int, sys.stdin.readline().split()))
-    for j in range(1, i+1):
-        dp[i][j] = input[j-1]
+    for j in range(len(input)):
+        arr[i][j] = input[j]
+dp = [[0] * (N) for _ in range(N)]
+dp[0][0] = arr[0][0]
 
-for i in range(N+1):
-    for j in range(1, i+1):
-        dp[i][j] += max(dp[i-1][j], dp[i-1][j-1])
+for i in range(N-1):
+    for j in range(i+1):
+        dp[i+1][j] = max(dp[i][j]+arr[i+1][j], dp[i+1][j])
+        dp[i+1][j+1] = max(dp[i][j]+arr[i+1][j+1], dp[i+1][j+1])
 
+pprint(dp)
 print(max(dp[-1]))
