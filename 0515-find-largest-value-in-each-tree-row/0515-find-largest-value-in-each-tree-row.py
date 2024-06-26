@@ -18,12 +18,11 @@ class Solution:
             
             for i in range(l):
                 node = q.popleft()
-                if node: 
-                    max_val = max(max_val, node.val)
-                    if node.left: 
-                        q.append(node.left)
-                    if node.right: 
-                        q.append(node.right)
+                max_val = max(max_val, node.val)
+                if node.left: 
+                    q.append(node.left)
+                if node.right: 
+                    q.append(node.right)
         
             result.append(max_val)
             
